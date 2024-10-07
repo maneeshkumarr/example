@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+    
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+    </link>
+</head>
+<body>
+<div class="main">
+<input type="checkbox" id="chk" aria-hidden="true" />
+<div class="signup">
+<form>
+<label for="chk" aria-hidden="true">Sign up</label>
+<input type="text" name="text" placeholder="user name" required />
+<input type="email" name="email" placeholder="Email" required />
+<input type="number" name="number" placeholder="phone number" required />
+<input type="password" name="password" placeholder="password" required />
+<button>sign up</button>
+</form>
+</div>
+<div id="login">
+<label for="chk"  aria-hidden="true">Login</label>
+<input id="email" type="email" name="email" placeholder="Email" required />
+<input id="password" type="password" name="password" placeholder="password" required />
+<button id="submit">Login</button></form>
+</div>
+</div>
+<style>
+  body
+{
+    margin:0;
+    padding:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    font-family:"jost",sans-serif;
+    background:linear-gradient(to bottom,#0f0c29, #302b63, #24243e) 
+}
+.main
+{
+    width:350px;
+    height:500px;
+   overflow:hidden;
+border-radius:10px;
+box-shadow:5px 20px 50px #000;
+    
+justify-content:center;
+}
+#chk{
+display:none;
+}
+.signup{
+position:relative;
+width:100%;
+height:100%;
+transition:0.8s ease-in-out;
+
+}
+label{
+color:#fff;
+font-size:2.3em;
+justify-content:center;
+display:flex;
+margin:50px;
+font-weight:bold;
+cursor:pointer;
+transition:0.5s ease-in-out;
+}
+
+input{
+width:60%;
+height:10px;
+background:#e0dede;
+justify-content:center;
+display:flex;
+margin:20px auto;
+padding:12px;
+border:none;
+outline:none;
+border-radius:5px;
+}
+button{
+width:60%;
+height:40px;
+margin:10px auto;
+justify-content:center;
+display:block;
+color:#fff;
+background:#573b8a;
+font-size:1em;
+font-weight:bold;
+margin-top:30px;
+outline:none;
+border:none;
+border-radius:5px;
+transition:0.2s ease-in;
+cursor:pointer;
+}
+button:hover{
+background:#6d44b8;
+}
+#login{
+height:460px;
+width:350px;
+background:#eee;
+border-radius:60% / 10%;
+transform:translateY(-180px);
+transition:0.9s ease-in-out;
+
+}
+#login label{
+color:#573b8a;
+transform:scale(0.6);
+}
+#chk:checked ~ #login{
+transform:translateY(-500px)
+}
+#chk:checked ~ #login label{
+transform:scale(1);
+}
+</style>
+<script>
+  // Sample credentials (replace with real authentication in a production app)
+const validCredentials = {
+    email: "user123",
+    password: "pass123"
+};
+
+// Function to handle login
+function handleLogin(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+  
+
+
+    // Validate the credentials
+    if (emailInput.value === validCredentials.email && passwordInput.value === validCredentials.password) {
+        alert("Login successful!");
+        window.location.href='index.html';
+    } else {
+      alert("Invalid Username or Password!!");
+    }
+}
+
+// Add event listener to the login button
+document.getElementById('submit').addEventListener('click', handleLogin);
+
+</script>
+</body>
+</html>
